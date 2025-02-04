@@ -2,6 +2,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  background-color: f3f3f3;
 }
 
 /* Navbar Styles */
@@ -158,47 +159,52 @@ button:active {
   margin: 0 auto; /* Center the paragraph */
 }
 
-/* Carousel Section */
-.slider{
-  background-color: black;
-  width: 100%;
-  border: 1px solid red;
-  height: var(--height);
+/*=============== BRAND SLIDER SECTION ===============*/
+.slider-brand {
+  width: 75vw;
+  height: auto;
+  margin: auto;
   overflow: hidden;
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 10% 90%,
-    transparent
-  );
 }
 
-.slider .list{
+.slider-brand .slide-track-brand {
   display: flex;
-  width: 100%;
-  min-width: calc(var(--width) * var(--quantity));
+  gap: 10px; /* Space between slides */
+  animation: scroll 80s linear infinite;
+  -webkit-animation: scroll 80s linear infinite;
+  width: calc((200px + 10px) * 18); /* Adjust width to account for gap */
 }
 
-.slider .list .item{
-  width: var(--width);
-  height: var(--height);
-  position: absolute;
-  left: 100%;
-  animation: autoRun 10s linear infinite ;
-  animation-delay: calc( (10s / var(--quantity)) * (var(--position) - 1) );
+.slider-brand .slide-brand {
+  width: 200px; /* Fixed width for each slide */
+  height: 200px; /* Fixed height for each slide */
+  overflow: hidden; /* Prevents content from spilling out */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centers content vertically */
+  background-color: #f5f5f5; /* Optional: Add background color for contrast */
+  border-radius: 10px; /* Optional: Rounded corners for slides */
 }
 
-.slider .list .item img{
-  width: 100%;
+.slider-brand .slide-brand img {
+  width: 100%; /* Ensure image fills the container width */
+  height: 100%; /* Ensure image fills the container height */
+  object-fit: contain; /* Preserve aspect ratio and make sure the whole logo fits */
+  border-radius: 10px; /* Optional: Rounded corners for a cleaner look */
+  background-color: hsl(0, 0%, 96%); /* Add a background to improve visibility of logos */
+  padding: 10px; /* Add padding to avoid logos touching edges */
+  box-sizing: border-box; /* Ensures padding doesn't affect image dimensions */
 }
 
-@keyframes autoRun{
-  from{
-    left: 100%;
-  }to{
-    left: calc(var(--width) * -1);
+@keyframes scroll {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(calc(-200px * 18));
   }
 }
+
 
 
 /* Contact Section */
